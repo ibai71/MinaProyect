@@ -1,0 +1,209 @@
+﻿#typeDiv {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+}
+
+#txt1 {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}
+
+#txt2 {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}
+
+#content {
+    position: absolute;
+    top: 1%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 28%;
+}
+
+#together {
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    margin: 0 0 4px;
+}
+
+#untilMeet {
+    font-size: 21px;
+    text-align: center;
+    color: white;
+    margin: 12px 0 4px;
+}
+
+#timer {
+    text-align: center;
+    color: white;
+    line-height: 1.4;
+}
+
+#timerMeet {
+    text-align: center;
+    color: white;
+    line-height: 1.4;
+}
+
+#d,
+#h,
+#m,
+#s,
+#rd,
+#rh,
+#rm,
+#rs {
+    font-size: 19px;
+}
+
+#heartTxt {
+    position: absolute;
+    display: table;
+    vertical-align: middle;
+    top: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 10%;
+    height: 8%;
+}
+
+#clickMe {
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#heart {
+    width: 100%;
+    height: 100%;
+}
+
+#button {
+    cursor: pointer;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px var(--shadow);
+    background-image: url("../pic/love.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-position: center;
+    transition: 0.1s;
+    width: 100%;
+    height: 100%;
+}
+
+#button:active {
+    width: 92%;
+    height: 92%;
+}
+
+#imgTxt {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: min(96vw, 1020px);
+    height: 60%;
+    padding: 0 14px;
+}
+
+#img {
+    display: block;
+    margin: 0 auto;
+    width: min(90vw, 860px);
+    height: min(52vh, 520px);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 14px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+#Txt,
+#tmp {
+    display: inline-block;
+    font-size: 17px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 700px) {
+    #content {
+        height: 31%;
+    }
+
+    #together {
+        font-size: 22px;
+    }
+
+    #untilMeet {
+        font-size: 18px;
+        margin-top: 8px;
+    }
+
+    #timer,
+    #timerMeet {
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    #d,
+    #h,
+    #m,
+    #s,
+    #rd,
+    #rh,
+    #rm,
+    #rs {
+        font-size: 16px;
+    }
+
+    #imgTxt {
+        top: 23%;
+        width: min(96vw, 680px);
+        height: 54%;
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    #img {
+        width: min(94vw, 560px);
+        height: min(42vh, 380px);
+        border-radius: 12px;
+        padding: 6px;
+    }
+
+    #Txt,
+    #tmp {
+        font-size: 15px;
+    }
+}

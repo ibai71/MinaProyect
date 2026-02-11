@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta charset="UTF-8">
+    <title>First Anniversary of Love</title>
+    <link rel="stylesheet" type="text/css" href="./css/format.css">
+    <link rel="stylesheet" href="../shared.css">
+</head>
+<body class="with-nav" style="margin:0px">
+    <header class="site-nav">
+        <nav class="nav-inner">
+            <a class="nav-brand" href="../index.html">Love Hub</a>
+            <div class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../anniversary/index.html">Aniversario</a>
+                <a href="../valentines-quiz/index.html">Quiz</a>
+            </div>
+        </nav>
+    </header>
+
+    <audio autoplay loop>
+        <source src="music/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio.
+    </audio>
+
+    <canvas></canvas>
+
+    <div id="imgTxt">
+        <span id="Txt"></span><br />
+        <span id="tmp"></span>
+        <img id="img" src="" alt="Memory photo">
+    </div>
+
+    <div id="heartTxt">
+        <span id="clickMe">Click!</span>
+        <div id="heart">
+            <button id="button" onclick="play()" aria-label="Play memories"></button>
+        </div>
+    </div>
+
+    <div id="content">
+        <h2 id="together">We have been together</h2>
+        <div id="timer">
+            <b id="d"></b> Days
+            <b id="h"></b> Hours
+            <b id="m"></b> Minutes
+            <b id="s"></b> Seconds
+        </div>
+        <h2 id="untilMeet">Time until we meet again</h2>
+        <!--
+        <div id="timerMeet">
+            <b id="rd"></b> Days
+            <b id="rh"></b> Hours
+            <b id="rm"></b> Minutes
+            <b id="rs"></b> Seconds
+        </div>
+        -->
+    </div>
+
+    <div id="typeDiv">
+        <span id="txt1"></span><br />
+        <span id="txt2"></span>
+    </div>
+
+    <script>
+        var ok = 0;
+        var flag = 1;
+        var myImage = document.getElementById("img");
+        var myTxt = document.getElementById("Txt");
+        var imageArray = [
+            "pic/pic1.png", "pic/pic2.png", "pic/pic3.png", "pic/pic4.png",
+            "pic/pic5.png", "pic/pic6.png", "pic/pic7.png", "pic/pic8.png",
+            "pic/pic9.png", "pic/pic10.png", "pic/pic11.png", "pic/pic13.png",
+            "pic/pic14.png", "pic/pic15.png", "pic/pic16.png", "pic/pic17.png",
+            "pic/pic18.png", "pic/pic19.png",
+            "pic/pic20.png", "pic/pic21.png", "pic/pic22.png", "pic/pic23.png",
+            "pic/pic24.png", "pic/pic25.png", "pic/pic26.png", "pic/pic27.png",
+            "pic/pic28.png", "pic/pic29.png", "pic/pic30.png", "pic/pic31.png",
+            "pic/pic32.png", "pic/pic33.png", "pic/pic34.png", "pic/pic35.png",
+            "pic/pic36.png", "pic/pic37.png", "pic/pic38.png", "pic/pic39.png",
+            "pic/pic40.png", "pic/pic41.png", "pic/pic42.png", "pic/pic43.png",
+            "pic/pic44.png"
+
+        ];
+        var imageIndex = 0;
+        var txtArray = [
+            "Our first hello changed everything.",
+            "That first smile still lives in my mind.",
+            "Every little moment became a memory.",
+            "I still remember how nervous and happy I was.",
+            "The night sky looked brighter with you.",
+            "Walking together always feels easy.",
+            "Even simple days became special.",
+            "You made ordinary moments unforgettable.",
+            "Your laugh is still my favorite sound.",
+            "Every picture keeps a piece of us.",
+            "You are my calm and my adventure.",
+            "Distance never changed what we built.",
+            "Thank you for every kind word.",
+            "Thank you for every patient moment.",
+            "I choose you, every day.",
+            "Our story is only getting started."
+        ];
+        var len = imageArray.length;
+        var t = 0;
+    </script>
+
+    <script type="text/javascript" src="./js/stars.js"></script>
+    <script type="text/javascript" src="./js/typeWriter.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>
+    <script type="text/javascript" src="./js/playImg.js"></script>
+</body>
+</html>

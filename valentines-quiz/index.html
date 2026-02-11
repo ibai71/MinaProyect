@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Quiz</title>
+    <link rel="icon" type="image/svg+xml" href="../bubu.svg">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="../shared.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="with-nav">
+    <header class="site-nav">
+        <nav class="nav-inner">
+            <a class="nav-brand" href="../index.html">Love Hub</a>
+            <div class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../anniversary/index.html">Aniversario</a>
+                <a href="../valentines-quiz/index.html">Quiz</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="completion-message" id="completionMessage">Perfect score. You got all answers right.</div>
+    <div class="imperfect-message" id="imperfectMessage">Some answers were wrong. The quiz will reset so you can try again.</div>
+    <audio id="victorySound" src="music/victory.mp3"></audio>
+
+    <div class="container">
+        <div class="score-board" id="scoreDisplay">Score: 0/0</div>
+        <h1>[YourName] and [PartnerName] Valentine Quiz</h1>
+        <div class="heart">&#9829;</div>
+
+        <div class="question-box">
+            <div class="question">Where did you have your first date?</div>
+            <div class="option" onclick="handleAnswer(this)">Restaurant</div>
+            <div class="option" onclick="handleAnswer(this)">Cinema</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">Park</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">Who said "I love you" first?</div>
+            <div class="option" onclick="handleAnswer(this)">Me</div>
+            <div class="option" onclick="handleAnswer(this)">My partner</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">At the same time</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">What is your partner favorite dessert?</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">Chocolate cake</div>
+            <div class="option" onclick="handleAnswer(this)">Ice cream</div>
+            <div class="option" onclick="handleAnswer(this)">Fruit salad</div>
+        </div>
+    </div>
+
+    <div id="successPopup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="successPopupText" aria-hidden="true">
+        <div id="successPopupDialog" class="popup-card">
+            <button id="successPopupClose" class="popup-close" type="button" aria-label="Close popup">Close</button>
+            <img id="successPopupImage" class="popup-image" src="assets/surprise.jpg" alt="A special memory photo">
+            <div id="successPopupFallback" class="popup-image-fallback" hidden>Photo unavailable</div>
+            <p id="successPopupText">You are my favorite answer, always.</p>
+        </div>
+    </div>
+
+    <script src="script/main.js"></script>
+</body>
+</html>

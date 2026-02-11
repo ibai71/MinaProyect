@@ -1,0 +1,27 @@
+{
+  "name": "love-website-generator",
+  "version": "1.0.0",
+  "description": "A beautiful, customizable love website generator that creates romantic websites for couples",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "love",
+    "romance",
+    "website",
+    "generator",
+    "couples",
+    "valentine",
+    "anniversary",
+    "relationship"
+  ],
+  "author": "Love Website Generator",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.4.2"
+  }
+}

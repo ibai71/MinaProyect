@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --primary-pink: #FF69B4;
+    --secondary-pink: #FFB6C1;
+    --accent-pink: #FF1493;
+    --deep-pink: #DC143C;
+    --soft-pink: #FFF0F5;
+    --soft-pink-2: #FFF5F9;
+    --soft-pink-3: #FFE6F2;
+    --gold: #FFD700;
+    --white: #FFFFFF;
+    --light-gray: #F8F9FA;
+    --shadow: rgba(255, 105, 180, 0.2);
+
+    --font-heading: "Great Vibes", cursive;
+    --font-elegant: "Cormorant Garamond", serif;
+    --font-special: "Alex Brush", cursive;
+    --font-body: "Poppins", sans-serif;
+
+    --gradient-primary: linear-gradient(135deg, #FF69B4, #FF1493, #DC143C);
+    --gradient-soft: linear-gradient(135deg, #FFB6C1, #FFF0F5, #FF69B4);
+    --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+
+    --nav-height: 56px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: #3a1b2b;
+}
+
+body.with-nav {
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top));
+}
+
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid rgba(255, 105, 180, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+.nav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--accent-pink);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a {
+    color: var(--deep-pink);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+    background: var(--soft-pink);
+    color: var(--accent-pink);
+    transform: translateY(-1px);
+}
+
+body.with-nav .music-control {
+    top: calc(var(--nav-height) + 12px);
+}
+
+body.with-nav #content {
+    top: calc(1% + var(--nav-height));
+}
+
+@media (max-width: 720px) {
+    .nav-inner {
+        gap: 12px;
+    }
+
+    .nav-brand {
+        font-size: 1.3rem;
+    }
+
+    .nav-links a {
+        padding: 6px 8px;
+        font-size: 0.95rem;
+    }
+}

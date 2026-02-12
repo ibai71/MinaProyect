@@ -11,7 +11,7 @@ const CONFIG = {
     // Custom messages
     messages: {
         subtitle: "you light up my world in ways words can't express ✨",
-        loveNote: "you are the sunshine in my darkest days and the stars in my night sky. Every moment with you feels like magic, and I fall in love with you more each day. You're not just my girlfriend, you're my best friend, my soulmate, and my everything. I love you beyond words! 💖",
+        loveNote: "you are the sunshine in my darkest days and the stars in my night sky. Every moment we share feels like magic, and I fall in love with you more each day. You're not just my girlfriend, you're my best friend, my soulmate, and my everything. I love you to the moon and back! 💖",
         specialMessage: "Distance gives us the reason to love harder, and I know loving you is always worth the wait. We will cuddle, go to play, eat together and many things more really soon",
         specialMessage2: "I know go alone to a foreign country to work many hours can feel lonely and stress sometimes, but remember I am always beside you. I promise to love you, cherish you, and make you smile every day of our lives together.",
         signature: "With all my love, Forever yours 💕"
@@ -21,7 +21,7 @@ const CONFIG = {
     memories: {
         lateNight: "Those endless videocalls that made us forget about time",
         firstMeeting: "Cant wait to see you again",
-        care: "Your caring nature, sweet voice, and adorable cuteness"
+        care: "Thank you for being how you are"
     },
     
     // Character descriptions
@@ -33,8 +33,8 @@ const CONFIG = {
     // Special messages for different kiss counts
     kissMessages: {
         10: "10 kisses! You're so sweet! 💕",
-        50: "50 kisses! I'm falling deeper in love! 💖",
-        100: "100 kisses! You're my everything! 💘"
+        50: "50 kisses! A lot of kisses!! 💖",
+        100: "100 kisses! Love you too much babyyy! 💘"
     },
     
     // Character interaction messages
@@ -47,7 +47,7 @@ const CONFIG = {
     memoryMessages: {
         lateNight: "Thank you for staying awake many times to call with me 🌙✨",
         firstMeeting: "I know the day we meet again be magical and unforgettable 💫💕",
-        care: "Your caring nature, sweet voice, and adorable cuteness melt my heart 💕😍"
+        care: "Your caring nature, cuteness and a little bit silly melt my heart 💕😍"
     }
 };
 

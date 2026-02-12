@@ -184,20 +184,6 @@ body.popup-open {
     box-shadow: 0 10px 24px var(--shadow);
 }
 
-.popup-image-fallback {
-    width: 100%;
-    max-width: 460px;
-    min-height: 180px;
-    margin: 0 auto 14px;
-    border: 2px dashed var(--secondary-pink);
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    color: var(--accent-pink);
-    font-weight: 700;
-    background: var(--soft-pink);
-}
-
 #successPopupText {
     margin: 0;
     text-align: center;

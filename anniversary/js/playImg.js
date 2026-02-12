@@ -3,10 +3,49 @@ btn.style.opacity = 0;
 var btnVal = 0;
 var storyCompleted = false;
 var finishStoryTimeout;
+var slideRequestId = 0;
+var preloadedImages = [];
+
+function preloadImages() {
+    preloadedImages = imageArray.map(function (src) {
+        var img = new Image();
+        img.src = src;
+        return img;
+    });
+}
+
+function renderSlide(index) {
+    var currentRequest = ++slideRequestId;
+    var src = imageArray[index];
+    var text = txtArray[index] || "";
+    var cachedImage = preloadedImages[index];
+
+    if (cachedImage && cachedImage.complete) {
+        myImage.setAttribute("src", src);
+        myTxt.textContent = text;
+        return;
+    }
+
+    var loader = new Image();
+    loader.onload = function () {
+        if (currentRequest !== slideRequestId) return;
+        myImage.setAttribute("src", src);
+        myTxt.textContent = text;
+    };
+    loader.onerror = function () {
+        if (currentRequest !== slideRequestId) return;
+        myImage.setAttribute("src", src);
+        myTxt.textContent = text;
+    };
+    loader.src = src;
+}
 
 function showImage() {
-    myImage.setAttribute("src", imageArray[imageIndex]);
-    myTxt.innerHTML = txtArray[imageIndex];
+    if (imageIndex >= len) {
+        return;
+    }
+
+    renderSlide(imageIndex);
     imageIndex++;
 
     if (imageIndex >= len) {
@@ -31,8 +70,9 @@ function play() {
 
     if (t == 0) {
         myImage.setAttribute("src", "");
-        myTxt.innerHTML = "";
+        myTxt.textContent = "";
         imageIndex = 0;
+        slideRequestId++;
         clearInterval(showImageInterval);
         clearTimeout(finishStoryTimeout);
     }
@@ -43,20 +83,10 @@ function play() {
 
     if (t == 0) {
         showImage();
-        showImageInterval = setInterval(showImage, 7000);
+        showImageInterval = setInterval(showImage, 8000);
     }
 
     t++;
-}
-
-function preshowImage() {
-    document.getElementById("imgTxt").style.opacity = 0;
-    myImage.setAttribute("src", imageArray[imageIndex]);
-    myTxt.innerHTML = txtArray[imageIndex];
-    imageIndex++;
-    if (imageIndex >= len) {
-        imageIndex = 0;
-    }
 }
 
 function buttonFadeIn() {
@@ -72,7 +102,10 @@ function buttonFadeIn() {
 }
 
 function event() {
-    showImageInterval = setInterval(preshowImage, 100);
+    document.getElementById("imgTxt").style.opacity = 0;
+    myImage.setAttribute("src", "");
+    myTxt.textContent = "";
+    preloadImages();
 
     imgInterval = setInterval(function () {
         if (ok == 3) {

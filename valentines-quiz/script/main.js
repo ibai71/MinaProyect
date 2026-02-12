@@ -9,14 +9,13 @@ const scoreDisplay = document.getElementById("scoreDisplay");
 const completionMessage = document.getElementById("completionMessage");
 const imperfectMessage = document.getElementById("imperfectMessage");
 const victorySound = document.getElementById("victorySound");
-const SUCCESS_POPUP_IMAGE_SRC = "assets/surprise.jpg";
+const SUCCESS_POPUP_IMAGE_SRC = "pictereMina.jpeg";
 const SUCCESS_POPUP_TEXT = "You are my favorite answer, always.";
 const successPopup = document.getElementById("successPopup");
 const successPopupDialog = document.getElementById("successPopupDialog");
 const successPopupImage = document.getElementById("successPopupImage");
 const successPopupText = document.getElementById("successPopupText");
 const successPopupClose = document.getElementById("successPopupClose");
-const successPopupFallback = document.getElementById("successPopupFallback");
 const rootStyles = getComputedStyle(document.documentElement);
 
 function getThemeVar(variableName, fallback) {
@@ -163,19 +162,9 @@ function hideSuccessPopup() {
     document.body.classList.remove("popup-open");
 }
 
-function showPopupImageFallback() {
-    if (successPopupImage) {
-        successPopupImage.hidden = true;
-    }
-    if (successPopupFallback) {
-        successPopupFallback.hidden = false;
-    }
-}
-
 function bindSuccessPopupEvents() {
     if (successPopupImage) {
         successPopupImage.src = SUCCESS_POPUP_IMAGE_SRC;
-        successPopupImage.addEventListener("error", showPopupImageFallback, { once: true });
     }
     if (successPopupText) {
         successPopupText.textContent = SUCCESS_POPUP_TEXT;

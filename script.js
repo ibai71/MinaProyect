@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update partner name and description
             const partnerName = document.getElementById('partnerName');
             if (partnerName) {
-                partnerName.textContent = `${CONFIG.partnerName} ðŸ’•`;
+                partnerName.textContent = `${CONFIG.partnerName} \uD83D\uDC95`;
             }
             
             const partnerDescription = document.getElementById('partnerDescription');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update your name and description
             const yourName = document.getElementById('yourName');
             if (yourName) {
-                yourName.textContent = `${CONFIG.yourName} ðŸ’™`;
+                yourName.textContent = `${CONFIG.yourName} \uD83D\uDC99`;
             }
             
             const yourDescription = document.getElementById('yourDescription');
@@ -133,14 +133,14 @@ document.addEventListener('DOMContentLoaded', function() {
     musicToggle.addEventListener('click', function() {
         if (isPlaying) {
             bgMusic.pause();
-            musicToggle.textContent = 'ðŸŽµ';
+            musicToggle.textContent = '\uD83C\uDFB5';
             isPlaying = false;
         } else {
             bgMusic.play().then(() => {
-                musicToggle.textContent = 'ðŸ”Š';
+                musicToggle.textContent = '\uD83D\uDD0A';
                 isPlaying = true;
             }).catch(() => {
-                musicToggle.textContent = 'âŒ';
+                musicToggle.textContent = '\u274C';
                 console.log('Music could not be played');
             });
         }
@@ -153,17 +153,17 @@ document.addEventListener('DOMContentLoaded', function() {
     loveButton.addEventListener('click', function() {
         loveNote.classList.toggle('visible');
         if (loveNote.classList.contains('visible')) {
-            loveButton.textContent = 'Hide My Love Note ðŸ’';
+            loveButton.textContent = 'Hide My Love Note \uD83D\uDC9D';
             createHeartBurst();
         } else {
-            loveButton.textContent = 'Click for a surprise ðŸ’';
+            loveButton.textContent = 'Click for a surprise \uD83D\uDC9D';
         }
     });
 
     // Create heart burst effect
     function createHeartBurst() {
         const heartsContainer = document.querySelector('.hearts-container');
-        const burstHearts = ['ðŸ’•', 'ðŸ’–', 'ðŸ’—', 'ðŸ’˜', 'ðŸ’', 'ðŸ’ž'];
+        const burstHearts = ['\uD83D\uDC95', '\uD83D\uDC96', '\uD83D\uDC97', '\uD83D\uDC98', '\uD83D\uDC9D', '\uD83D\uDC9E'];
         
         for (let i = 0; i < 10; i++) {
             const heart = document.createElement('div');
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create kiss effect
     function createKissEffect() {
         const kissEffects = document.querySelector('.kiss-effects');
-        const kissSymbols = ['ðŸ’‹', 'ðŸ’•', 'ðŸ’–', 'ðŸ’—', 'ðŸ˜˜'];
+        const kissSymbols = ['\uD83D\uDC8B', '\uD83D\uDC95', '\uD83D\uDC96', '\uD83D\uDC97', '\uD83D\uDE18'];
         
         for (let i = 0; i < 5; i++) {
             const kiss = document.createElement('div');
@@ -273,15 +273,15 @@ document.addEventListener('DOMContentLoaded', function() {
             switch(type) {
                 case 'late-night':
                     createStars();
-                    showMemoryMessage(window.CONFIG.memoryMessages.lateNight || "Those late nights talking with you are my favorite memories ðŸŒ™âœ¨");
+                    showMemoryMessage(window.CONFIG.memoryMessages.lateNight || "Those late nights talking with you are my favorite memories \uD83C\uDF19\u2728");
                     break;
                 case 'first-meeting':
                     createSparkles();
-                    showMemoryMessage(window.CONFIG.memoryMessages.firstMeeting || "I know the day we meet will be magical and unforgettable ðŸ’«ðŸ’•");
+                    showMemoryMessage(window.CONFIG.memoryMessages.firstMeeting || "I know the day we meet will be magical and unforgettable \uD83D\uDCAB\uD83D\uDC95");
                     break;
                 case 'care':
                     createHeartRain();
-                    showMemoryMessage(window.CONFIG.memoryMessages.care || "Your caring nature, sweet voice, and adorable cuteness melt my heart ðŸ’•ðŸ˜");
+                    showMemoryMessage(window.CONFIG.memoryMessages.care || "Your caring nature, sweet voice, and adorable cuteness melt my heart \uD83D\uDC95\uD83D\uDE0D");
                     break;
             }
         }
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (let i = 0; i < 20; i++) {
             const star = document.createElement('div');
-            star.textContent = 'âœ¨';
+            star.textContent = '\u2728';
             star.style.position = 'absolute';
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 100 + '%';
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create sparkle effect
     function createSparkles() {
         const heartsContainer = document.querySelector('.hearts-container');
-        const sparkles = ['âœ¨', 'â­', 'ðŸ’«', 'ðŸŒŸ'];
+        const sparkles = ['\u2728', '\u2B50', '\uD83D\uDCAB', '\uD83C\uDF1F'];
         
         for (let i = 0; i < 15; i++) {
             const sparkle = document.createElement('div');
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create heart rain effect
     function createHeartRain() {
         const heartsContainer = document.querySelector('.hearts-container');
-        const hearts = ['ðŸ’•', 'ðŸ’–', 'ðŸ’—', 'ðŸ’˜', 'ðŸ’', 'ðŸ’ž'];
+        const hearts = ['\uD83D\uDC95', '\uD83D\uDC96', '\uD83D\uDC97', '\uD83D\uDC98', '\uD83D\uDC9D', '\uD83D\uDC9E'];
         
         for (let i = 0; i < 25; i++) {
             setTimeout(() => {
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
         partnerCharacter.addEventListener('click', function() {
             const message = window.CONFIG && window.CONFIG.characterMessages && window.CONFIG.characterMessages.partner 
                 ? `${window.CONFIG.partnerName}, ${window.CONFIG.characterMessages.partner}`
-                : "You're the most beautiful person in the world! ðŸ’•";
+                : "You're the most beautiful person in the world! \uD83D\uDC95";
             showSpecialMessage(message);
             createHeartBurst();
         });
@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
         youCharacter.addEventListener('click', function() {
             const message = window.CONFIG && window.CONFIG.characterMessages && window.CONFIG.characterMessages.you 
                 ? window.CONFIG.characterMessages.you
-                : "I'm so lucky to have you in my life! ðŸ’–";
+                : "I'm so lucky to have you in my life! \uD83D\uDC96";
             showSpecialMessage(message);
             createSparkles();
         });

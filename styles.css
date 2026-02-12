@@ -1,27 +1,3 @@
-/* CSS Variables for Harshita's Theme */
-:root {
-    --primary-pink: #FF69B4;
-    --secondary-pink: #FFB6C1;
-    --accent-pink: #FF1493;
-    --soft-pink: #FFF0F5;
-    --deep-pink: #DC143C;
-    --gold: #FFD700;
-    --white: #FFFFFF;
-    --light-gray: #F8F9FA;
-    --shadow: rgba(255, 105, 180, 0.2);
-    
-    /* Beautiful Elegant Fonts */
-    --font-heading: 'Great Vibes', cursive;
-    --font-elegant: 'Cormorant Garamond', serif;
-    --font-special: 'Alex Brush', cursive;
-    --font-body: 'Poppins', sans-serif;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #FF69B4, #FF1493, #DC143C);
-    --gradient-soft: linear-gradient(135deg, #FFB6C1, #FFF0F5, #FF69B4);
-    --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
-}
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -119,8 +95,8 @@ body {
 }
 
 @keyframes glow {
-    from { filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3)); }
-    to { filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.6)); }
+    from { filter: drop-shadow(0 0 10px var(--rom-shadow)); }
+    to { filter: drop-shadow(0 0 20px var(--rom-shadow-strong)); }
 }
 
 .subtitle {
@@ -213,6 +189,7 @@ body {
 .heart-svg {
     width: 60px;
     height: 60px;
+    color: var(--rom-brand);
     filter: drop-shadow(0 4px 8px var(--shadow));
 }
 
@@ -376,7 +353,7 @@ body {
 
 .love-meter {
     position: relative;
-    background: rgba(255, 182, 193, 0.3);
+    background: rgba(199, 162, 171, 0.3);
     height: 30px;
     border-radius: 15px;
     overflow: hidden;
@@ -561,26 +538,6 @@ body {
     }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --soft-pink: #2D1B2D;
-        --light-gray: #1A1A1A;
-    }
-    
-    body {
-        background: linear-gradient(135deg, #2D1B2D, #4A1A4A, #6B1B6B);
-    }
-    
-    .character, .memory-gallery, .love-meter-section, .game-section {
-        background: rgba(0, 0, 0, 0.3);
-    }
-    
-    .interaction-section, .special-message {
-        background: rgba(0, 0, 0, 0.2);
-    }
-}
-
 /* Performance Optimizations */
 .character, .memory-card, .love-note {
     will-change: transform;
@@ -671,7 +628,7 @@ html {
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 8px 20px var(--shadow);
-    border: 2px solid rgba(255, 105, 180, 0.35);
+    border: 2px solid rgba(122, 30, 58, 0.25);
 }
 
 @media (max-width: 600px) {

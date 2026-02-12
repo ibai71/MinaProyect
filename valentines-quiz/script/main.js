@@ -17,6 +17,19 @@ const successPopupImage = document.getElementById("successPopupImage");
 const successPopupText = document.getElementById("successPopupText");
 const successPopupClose = document.getElementById("successPopupClose");
 const successPopupFallback = document.getElementById("successPopupFallback");
+const rootStyles = getComputedStyle(document.documentElement);
+
+function getThemeVar(variableName, fallback) {
+    const value = rootStyles.getPropertyValue(variableName).trim();
+    return value || fallback;
+}
+
+const confettiColors = [
+    getThemeVar("--rom-brand", "#7A1E3A"),
+    getThemeVar("--rom-brand-dark", "#5A1129"),
+    getThemeVar("--rom-accent-dust", "#C7A2AB"),
+    getThemeVar("--rom-accent-champagne", "#D8C39A")
+];
 
 scoreDisplay.textContent = `Score: 0/${totalQuestions}`;
 bindSuccessPopupEvents();
@@ -109,7 +122,7 @@ function showCelebration() {
             angle: 60,
             spread: 55,
             origin: { x: 0 },
-            colors: ["#ff6699", "#ff3366"]
+            colors: confettiColors
         });
 
         confetti({
@@ -117,7 +130,7 @@ function showCelebration() {
             angle: 120,
             spread: 55,
             origin: { x: 1 },
-            colors: ["#ff6699", "#ff3366"]
+            colors: confettiColors
         });
 
         if (Date.now() < end) requestAnimationFrame(frame);

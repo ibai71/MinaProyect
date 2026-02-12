@@ -1,26 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap");
 
 :root {
-    --primary-pink: #FF69B4;
-    --secondary-pink: #FFB6C1;
-    --accent-pink: #FF1493;
-    --deep-pink: #DC143C;
-    --soft-pink: #FFF0F5;
-    --soft-pink-2: #FFF5F9;
-    --soft-pink-3: #FFE6F2;
-    --gold: #FFD700;
+    --rom-bg-ivory: #F8F4EE;
+    --rom-bg-soft: #EFE4DA;
+    --rom-brand: #7A1E3A;
+    --rom-brand-dark: #5A1129;
+    --rom-accent-dust: #C7A2AB;
+    --rom-accent-champagne: #D8C39A;
+    --rom-text: #2E1F25;
+    --rom-text-muted: #5A4650;
+    --rom-shadow: rgba(90, 17, 41, 0.20);
+    --rom-shadow-strong: rgba(90, 17, 41, 0.30);
+    --rom-gradient-primary: linear-gradient(135deg, #7A1E3A, #6A1832, #5A1129);
+    --rom-gradient-soft: linear-gradient(135deg, #EFE4DA, #F8F4EE, #E9D7DC);
+
+    /* Legacy aliases for existing styles */
+    --primary-pink: var(--rom-brand);
+    --secondary-pink: var(--rom-accent-dust);
+    --accent-pink: var(--rom-brand-dark);
+    --deep-pink: var(--rom-brand-dark);
+    --soft-pink: var(--rom-bg-soft);
+    --soft-pink-2: #F3ECE5;
+    --soft-pink-3: #E9D7DC;
+    --gold: var(--rom-accent-champagne);
     --white: #FFFFFF;
-    --light-gray: #F8F9FA;
-    --shadow: rgba(255, 105, 180, 0.2);
+    --light-gray: var(--rom-bg-ivory);
+    --shadow: var(--rom-shadow);
 
     --font-heading: "Great Vibes", cursive;
     --font-elegant: "Cormorant Garamond", serif;
     --font-special: "Alex Brush", cursive;
     --font-body: "Poppins", sans-serif;
 
-    --gradient-primary: linear-gradient(135deg, #FF69B4, #FF1493, #DC143C);
-    --gradient-soft: linear-gradient(135deg, #FFB6C1, #FFF0F5, #FF69B4);
-    --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+    --gradient-primary: var(--rom-gradient-primary);
+    --gradient-soft: var(--rom-gradient-soft);
+    --gradient-gold: linear-gradient(135deg, #D8C39A, #B78B52);
 
     --nav-height: 56px;
 }
@@ -31,7 +45,7 @@
 
 body {
     font-family: var(--font-body);
-    color: #3a1b2b;
+    color: var(--rom-text);
 }
 
 body.with-nav {
@@ -45,8 +59,8 @@ body.with-nav {
     right: 0;
     height: var(--nav-height);
     z-index: 1001;
-    background: rgba(255, 255, 255, 0.88);
-    border-bottom: 1px solid rgba(255, 105, 180, 0.18);
+    background: rgba(248, 244, 238, 0.88);
+    border-bottom: 1px solid rgba(122, 30, 58, 0.16);
     backdrop-filter: blur(10px);
 }
 
@@ -63,13 +77,13 @@ body.with-nav {
 .nav-brand {
     font-family: var(--font-heading);
     font-size: 1.6rem;
-    color: var(--accent-pink);
+    color: var(--rom-brand);
     text-decoration: none;
     letter-spacing: 0.5px;
 }
 
 .nav-links a {
-    color: var(--deep-pink);
+    color: var(--rom-brand-dark);
     text-decoration: none;
     font-weight: 600;
     padding: 6px 12px;
@@ -78,8 +92,8 @@ body.with-nav {
 }
 
 .nav-links a:hover {
-    background: var(--soft-pink);
-    color: var(--accent-pink);
+    background: var(--rom-bg-soft);
+    color: var(--rom-brand);
     transform: translateY(-1px);
 }
 

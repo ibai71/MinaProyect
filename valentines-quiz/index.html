@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../shared.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
-<body class="with-nav">
+<body class="with-nav dynamic-bg">
     <header class="site-nav">
         <nav class="nav-inner">
             <a class="nav-brand" href="../index.html">Love Hub</a>
@@ -22,33 +22,40 @@
     </header>
 
     <div class="completion-message" id="completionMessage">Perfect score. You got all answers right.</div>
-    <div class="imperfect-message" id="imperfectMessage">Some answers were wrong. The quiz will reset so you can try again.</div>
+    <div class="imperfect-message" id="imperfectMessage">Some answers were wrong. Try again baby.</div>
     <audio id="victorySound" src="music/victory.mp3"></audio>
 
     <div class="container">
         <div class="score-board" id="scoreDisplay">Score: 0/0</div>
-        <h1>[YourName] and [PartnerName] Valentine Quiz</h1>
+        <h1> Mina and Ibai Valentine Quiz</h1>
         <div class="heart">&#9829;</div>
 
         <div class="question-box">
-            <div class="question">Where did you have your first date?</div>
-            <div class="option" onclick="handleAnswer(this)">Restaurant</div>
-            <div class="option" onclick="handleAnswer(this)">Cinema</div>
-            <div class="option" data-correct="true" onclick="handleAnswer(this)">Park</div>
+            <div class="question">What I asked you the night we meet?</div>
+            <div class="option" onclick="handleAnswer(this)">Where are you from?</div>
+            <div class="option" onclick="handleAnswer(this)">Do you want to dance with me?</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">Can I Kiss you?</div>
         </div>
 
         <div class="question-box">
-            <div class="question">Who said "I love you" first?</div>
-            <div class="option" onclick="handleAnswer(this)">Me</div>
-            <div class="option" onclick="handleAnswer(this)">My partner</div>
-            <div class="option" data-correct="true" onclick="handleAnswer(this)">At the same time</div>
+            <div class="question">What is the first restaurant we will go when we come back to korea</div>
+            <div class="option" onclick="handleAnswer(this)">Kbbq near school</div>
+            <div class="option" onclick="handleAnswer(this)">Premium tteokbokki</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">Hoya sushi</div>
         </div>
 
         <div class="question-box">
-            <div class="question">What is your partner favorite dessert?</div>
-            <div class="option" data-correct="true" onclick="handleAnswer(this)">Chocolate cake</div>
-            <div class="option" onclick="handleAnswer(this)">Ice cream</div>
-            <div class="option" onclick="handleAnswer(this)">Fruit salad</div>
+            <div class="question">What is the first movie we saw together</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">Titanic</div>
+            <div class="option" onclick="handleAnswer(this)">La casa de papel</div>
+            <div class="option" onclick="handleAnswer(this)">inside out</div>
+        </div>
+
+        <div class="question-box">
+            <div class="question">What is the long nickname I gave you</div>
+            <div class="option" data-correct="true" onclick="handleAnswer(this)">My hot duck fill with water</div>
+            <div class="option" onclick="handleAnswer(this)">La casa de papel</div>
+            <div class="option" onclick="handleAnswer(this)">inside out</div>
         </div>
     </div>
 

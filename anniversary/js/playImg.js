@@ -1,22 +1,40 @@
-﻿var btn = document.getElementById("heartTxt");
+var btn = document.getElementById("heartTxt");
 btn.style.opacity = 0;
 var btnVal = 0;
+var storyCompleted = false;
+var finishStoryTimeout;
 
 function showImage() {
     myImage.setAttribute("src", imageArray[imageIndex]);
     myTxt.innerHTML = txtArray[imageIndex];
     imageIndex++;
+
     if (imageIndex >= len) {
-        imageIndex = 0;
+        clearInterval(showImageInterval);
+        clearTimeout(finishStoryTimeout);
+        finishStoryTimeout = setTimeout(function () {
+            flag = 1;
+            storyCompleted = true;
+            document.getElementById("typeDiv").style.opacity = 1;
+            document.getElementById("imgTxt").style.opacity = 0;
+            showEndingTypewriterMessage("Our story is just beginning");
+        }, 2200);
     }
 }
 
 function play() {
+    if (storyCompleted) {
+        clearTimeout(finishStoryTimeout);
+        storyCompleted = false;
+        t = 0;
+    }
+
     if (t == 0) {
         myImage.setAttribute("src", "");
         myTxt.innerHTML = "";
         imageIndex = 0;
         clearInterval(showImageInterval);
+        clearTimeout(finishStoryTimeout);
     }
 
     flag = 1 - flag;
@@ -24,6 +42,7 @@ function play() {
     document.getElementById("imgTxt").style.opacity = 1 - flag;
 
     if (t == 0) {
+        showImage();
         showImageInterval = setInterval(showImage, 7000);
     }
 

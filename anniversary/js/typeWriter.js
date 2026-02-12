@@ -1,6 +1,7 @@
 ﻿let i = 0;
 let text1 = "Hello my love";
-let text2 = "Thank you for all the things we achieve together, cant wait to see everything we will achive together";
+let text2 = "Thank you for all the things we achieve together, cant wait to achieve more dreams together";
+let endingTypeInterval;
 
 function typeWriter(text, para) {
     if (ok == 2) {
@@ -27,3 +28,23 @@ typeInterval = setInterval(function () {
         typeWriter(text2, "txt2");
     }
 }, 100);
+
+function showEndingTypewriterMessage(message) {
+    clearInterval(typeInterval);
+    clearInterval(endingTypeInterval);
+
+    const txt1El = document.getElementById("txt1");
+    const txt2El = document.getElementById("txt2");
+    txt1El.innerHTML = "";
+    txt2El.innerHTML = "";
+
+    let endingIndex = 0;
+    endingTypeInterval = setInterval(function () {
+        if (endingIndex < message.length) {
+            txt1El.innerHTML += message.charAt(endingIndex);
+            endingIndex++;
+        } else {
+            clearInterval(endingTypeInterval);
+        }
+    }, 90);
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Website Generator</title>
+    <script src="config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/assets/index-Cj7byvlI.css">
+</head>
+<body class="with-nav dynamic-bg">
+    <header class="site-nav">
+        <nav class="nav-inner">
+            <a class="nav-brand" href="index.html">Love Hub</a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="anniversary/index.html">Memories</a>
+                <a href="valentines-quiz/index.html">Quiz</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">&#127925;</button>
+        <audio id="bgMusic" loop>
+            <source src="/assets/MayeTu-P7xcjV4L.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="hearts-container"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">For My Love</h1>
+            <p class="subtitle" id="subtitle">Add your partner name in config.js</p>
+        </header>
+
+        <section class="experiences-section">
+            <h2>More Love Experiences</h2>
+            <div class="experiences-grid">
+                <a class="experience-card" href="anniversary/index.html">
+                    <h3>Our memories</h3>
+                    <p>Timeline, counter, and photo memories.</p>
+                </a>
+                <a class="experience-card" href="valentines-quiz/index.html">
+                    <h3>Valentine Quiz</h3>
+                    <p>Answer all questions and unlock a gift.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="characters-section">
+            <div class="character-container">
+                <div class="character" id="partner">
+                    <div class="character-avatar">
+                        <img src="/assets/duck-BAWoBw9c.png" alt="Partner image" class="character-img">
+                    </div>
+                    <h3 id="partnerName">Your Love</h3>
+                    <p id="partnerDescription">My beautiful angel</p>
+                </div>
+
+                <div class="love-heart">
+                    <svg viewBox="0 0 50 50" class="heart-svg">
+                        <path d="M25 45 C25 45, 5 25, 5 15 C5 10, 10 5, 15 5 C20 5, 25 10, 25 15 C25 10, 30 5, 35 5 C40 5, 45 10, 45 15 C45 25, 25 45, 25 45 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+
+                <div class="character" id="you">
+                    <div class="character-avatar">
+                        <img src="/assets/monkey-D1Jh71ZH.png" alt="Your image" class="character-img">
+                    </div>
+                    <h3 id="yourName">Me</h3>
+                    <p id="yourDescription">Forever yours</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interaction-section">
+            <button id="loveButton" class="love-btn">Click for a surprise</button>
+            <div id="loveNote" class="love-note">
+                <p id="loveNoteText">Add your love message in config.js</p>
+            </div>
+        </section>
+
+        <section class="memory-gallery">
+            <h2>Our Beautiful Memories Together</h2>
+            <div class="memories-grid">
+                <div class="memory-card" data-memory="late-night">
+                    <div class="memory-icon">&#127769;</div>
+                    <h3>Late Night Talks</h3>
+                    <p id="memoryLateNight">Those endless conversations that made us forget about time</p>
+                </div>
+                <div class="memory-card" data-memory="first-meeting">
+                    <div class="memory-icon">&#128171;</div>
+                    <h3>The Day We Meet</h3>
+                    <p id="memoryFirstMeeting">I know the day we meet will be magical and unforgettable</p>
+                </div>
+                <div class="memory-card" data-memory="care">
+                    <div class="memory-icon">&#128150;</div>
+                    <h3>Your Care and Voice</h3>
+                    <p id="memoryCare">Your caring nature, sweet voice, and adorable cuteness</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="love-meter-section">
+            <h2>How Much I Love You</h2>
+            <div class="love-meter">
+                <div class="meter-fill"></div>
+                <span class="love-percentage">infinite%</span>
+            </div>
+        </section>
+
+        <section class="game-section">
+            <h2>Virtual Kisses</h2>
+            <div class="kiss-counter">
+                <span id="kissCount">0</span>
+                <button id="kissButton" class="kiss-btn">Send a Kiss</button>
+            </div>
+            <div class="kiss-effects"></div>
+        </section>
+
+        <section class="special-message">
+            <div class="message-container">
+                <h2 id="specialMessageTitle">To My Dearest Love</h2>
+                <p id="specialMessage1">You came into my life like a beautiful surprise, and now I cannot imagine my world without you. Your smile brightens my darkest days, your laugh is my favorite melody, and your love is the greatest gift I have ever received.</p>
+                <p id="specialMessage2">Thank you for being you, for loving me, and for making every day feel like a celebration. I promise to love you, cherish you, and make you smile every single day of our lives together.</p>
+                <div class="signature" id="signature">With all my love, forever yours.</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 ﻿let i = 0;
 let text1 = "Hello my love";
-let text2 = "Thank you for all the things we achieve together, cant wait to achieve more dreams together";
+let text2 = "Thank you for all the things we achieve together, cant wait to achieve more dreams with you";
 let endingTypeInterval;
 
 function typeWriter(text, para) {

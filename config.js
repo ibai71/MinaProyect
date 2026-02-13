@@ -11,7 +11,7 @@ const CONFIG = {
     // Custom messages
     messages: {
         subtitle: "you light up my world in ways words can't express ✨",
-        loveNote: "you are the sunshine in my darkest days and the stars in my night sky. Every moment we share feels like magic, and I fall in love with you more each day. You're not just my girlfriend, you're my best friend, my soulmate, and my everything. I love you to the moon and back! 💖",
+        loveNote: "em là ánh nắng của anh. Lúc nào với em anh cũng vui hơn. Mỗi ngày anh yêu em nhiều hơn. Em không chỉ là bạn gái của anh mà còn là tri kỷ của anh. Anh yêu em mãi mãi, đến mặt trăng và quay lại. 🌙❤️",
         specialMessage: "Distance gives us the reason to love harder, and I know loving you is always worth the wait. We will cuddle, go to play, eat together and many things more really soon",
         specialMessage2: "I know go alone to a foreign country to work many hours can feel lonely and stress sometimes, but remember I am always beside you. I promise to love you, cherish you, and make you smile every day of our lives together.",
         signature: "With all my love, Forever yours 💕"
@@ -39,8 +39,8 @@ const CONFIG = {
     
     // Character interaction messages
     characterMessages: {
-        partner: "you're the most beautiful person in the world! 💕",
-        you: "I'm so lucky to have you in my life! 💖"
+        partner: "Quack Quack",
+        you: "uu uu aa aa"
     },
     
     // Memory effect messages

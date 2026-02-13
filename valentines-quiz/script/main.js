@@ -1,4 +1,4 @@
-﻿const questionBoxes = Array.from(document.querySelectorAll(".question-box"));
+const questionBoxes = Array.from(document.querySelectorAll(".question-box"));
 const totalQuestions = questionBoxes.length;
 let selections = new Map();
 let score = 0;
@@ -6,6 +6,7 @@ let isLocked = false;
 let isValidating = false;
 
 const scoreDisplay = document.getElementById("scoreDisplay");
+const validateButton = document.getElementById("validateButton");
 const completionMessage = document.getElementById("completionMessage");
 const imperfectMessage = document.getElementById("imperfectMessage");
 const victorySound = document.getElementById("victorySound");
@@ -17,6 +18,9 @@ const successPopupImage = document.getElementById("successPopupImage");
 const successPopupText = document.getElementById("successPopupText");
 const successPopupClose = document.getElementById("successPopupClose");
 const rootStyles = getComputedStyle(document.documentElement);
+
+const IMPERFECT_DEFAULT_MESSAGE = imperfectMessage ? imperfectMessage.textContent : "";
+const INCOMPLETE_MESSAGE = "You need answer all the questions babyyy.";
 
 function getThemeVar(variableName, fallback) {
     const value = rootStyles.getPropertyValue(variableName).trim();
@@ -33,11 +37,24 @@ const confettiColors = [
 scoreDisplay.textContent = `Score: 0/${totalQuestions}`;
 bindSuccessPopupEvents();
 
+if (validateButton) {
+    validateButton.addEventListener("click", validateAnswers);
+}
+
+function getLockedCount() {
+    return questionBoxes.filter(questionBox => questionBox.dataset.locked === "true").length;
+}
+
+function updateScoreDisplay() {
+    score = getLockedCount();
+    scoreDisplay.textContent = `Score: ${score}/${totalQuestions}`;
+}
+
 function handleAnswer(selectedOption) {
     if (isLocked || isValidating) return;
 
     const questionBox = selectedOption.closest(".question-box");
-    if (!questionBox) return;
+    if (!questionBox || questionBox.dataset.locked === "true") return;
 
     const options = questionBox.querySelectorAll(".option");
     options.forEach(option => {
@@ -47,25 +64,54 @@ function handleAnswer(selectedOption) {
     selectedOption.classList.add("selected");
     selections.set(questionBox, selectedOption);
 
-    if (selections.size === totalQuestions) {
-        validateAnswers();
-    }
+    completionMessage.style.display = "none";
+    imperfectMessage.style.display = "none";
+    imperfectMessage.textContent = IMPERFECT_DEFAULT_MESSAGE;
 }
 
 function validateAnswers() {
-    if (isLocked) return;
+    if (isLocked || isValidating) return;
 
     isValidating = true;
-    score = 0;
+    let unansweredCount = 0;
 
-    selections.forEach(selected => {
+    questionBoxes.forEach(questionBox => {
+        if (questionBox.dataset.locked === "true") {
+            return;
+        }
+
+        const options = questionBox.querySelectorAll(".option");
+        const selected = questionBox.querySelector(".option.selected") || selections.get(questionBox);
+
+        if (!selected) {
+            unansweredCount++;
+            return;
+        }
+
+        selections.set(questionBox, selected);
+
+        options.forEach(option => {
+            option.classList.remove("correct", "incorrect");
+        });
+
+        const correctOption = questionBox.querySelector('.option[data-correct="true"]');
         const isCorrect = selected.dataset.correct === "true";
+
         selected.classList.remove("selected");
-        selected.classList.add(isCorrect ? "correct" : "incorrect");
-        if (isCorrect) score++;
+
+        if (isCorrect) {
+            selected.classList.add("correct");
+            lockQuestion(questionBox);
+        } else {
+            selected.classList.add("incorrect");
+            if (correctOption) {
+                correctOption.classList.add("correct");
+            }
+            unlockQuestion(questionBox);
+        }
     });
 
-    scoreDisplay.textContent = `Score: ${score}/${totalQuestions}`;
+    updateScoreDisplay();
 
     window.scrollTo({
         top: 0,
@@ -75,34 +121,34 @@ function validateAnswers() {
     if (score === totalQuestions) {
         showCelebration();
         isLocked = true;
-        isValidating = false;
+        if (validateButton) {
+            validateButton.disabled = true;
+            validateButton.textContent = "Completed";
+        }
+    } else if (unansweredCount > 0) {
+        showImperfectScoreMessage(INCOMPLETE_MESSAGE);
     } else {
-        showImperfectScoreMessage();
-        setTimeout(resetQuiz, 5000);
+        showImperfectScoreMessage(IMPERFECT_DEFAULT_MESSAGE);
     }
+
+    isValidating = false;
 }
 
-function resetQuiz() {
-    score = 0;
-    selections.clear();
-    isValidating = false;
+function lockQuestion(questionBox) {
+    questionBox.dataset.locked = "true";
+    const options = questionBox.querySelectorAll(".option");
+    options.forEach(option => {
+        option.classList.add("locked");
+        option.style.pointerEvents = "none";
+    });
+}
 
-    scoreDisplay.textContent = `Score: 0/${totalQuestions}`;
-    completionMessage.style.display = "none";
-    imperfectMessage.style.display = "none";
-
-    if (!victorySound.paused) {
-        victorySound.pause();
-    }
-    victorySound.currentTime = 0;
-    hideSuccessPopup();
-
-    questionBoxes.forEach(box => {
-        const options = box.querySelectorAll(".option");
-        options.forEach(option => {
-            option.classList.remove("selected", "correct", "incorrect", "disabled");
-            option.style.pointerEvents = "";
-        });
+function unlockQuestion(questionBox) {
+    questionBox.dataset.locked = "false";
+    const options = questionBox.querySelectorAll(".option");
+    options.forEach(option => {
+        option.classList.remove("locked");
+        option.style.pointerEvents = "";
     });
 }
 
@@ -112,39 +158,42 @@ function showCelebration() {
     victorySound.play().catch(() => {});
     showSuccessPopup();
 
-    const duration = 5000;
-    const end = Date.now() + duration;
+    if (typeof confetti === "function") {
+        const duration = 5000;
+        const end = Date.now() + duration;
 
-    (function frame() {
+        (function frame() {
+            confetti({
+                particleCount: 7,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: confettiColors
+            });
+
+            confetti({
+                particleCount: 7,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: confettiColors
+            });
+
+            if (Date.now() < end) requestAnimationFrame(frame);
+        }());
+
         confetti({
-            particleCount: 7,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: confettiColors
+            particleCount: 100,
+            spread: 100,
+            origin: { y: 0.6 },
+            decay: 0.9
         });
-
-        confetti({
-            particleCount: 7,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: confettiColors
-        });
-
-        if (Date.now() < end) requestAnimationFrame(frame);
-    }());
-
-    confetti({
-        particleCount: 100,
-        spread: 100,
-        origin: { y: 0.6 },
-        decay: 0.9
-    });
+    }
 }
 
-function showImperfectScoreMessage() {
+function showImperfectScoreMessage(message) {
     completionMessage.style.display = "none";
+    imperfectMessage.textContent = message;
     imperfectMessage.style.display = "block";
 }
 

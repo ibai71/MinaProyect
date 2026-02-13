@@ -32,6 +32,36 @@ h1 {
     margin-bottom: 16px;
 }
 
+.quiz-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.validate-btn {
+    border: 0;
+    border-radius: 999px;
+    background: var(--accent-pink);
+    color: #fff;
+    padding: 12px 22px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 18px var(--shadow);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.validate-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(0.97);
+}
+
+.validate-btn:disabled {
+    cursor: default;
+    opacity: 0.7;
+    transform: none;
+}
+
 .question-box {
     margin: 25px 0;
     padding: 20px;
@@ -68,6 +98,11 @@ h1 {
     background: var(--soft-pink);
     border-color: var(--accent-pink);
     box-shadow: 0 8px 18px var(--shadow);
+}
+
+.option.locked {
+    cursor: default;
+    opacity: 0.95;
 }
 
 @keyframes pulse {

@@ -83,7 +83,7 @@ function play() {
 
     if (t == 0) {
         showImage();
-        showImageInterval = setInterval(showImage, 8000);
+        showImageInterval = setInterval(showImage, 6500);
     }
 
     t++;
